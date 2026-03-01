@@ -5,7 +5,7 @@
 }
 
 .store-catalog {
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: "Segoe UI", system-ui, sans-serif;
   color: #2d3436;
   line-height: 1.6;
 }
@@ -23,7 +23,9 @@ section {
   margin: 0 auto;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.2;
 }
 

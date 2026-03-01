@@ -43,7 +43,9 @@
   padding: 15px 30px;
   border-radius: 25px;
   font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .newsletter-form button:hover {

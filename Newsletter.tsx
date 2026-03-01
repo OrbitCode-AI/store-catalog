@@ -1,24 +1,24 @@
-import './Newsletter.css';
-import { useVar } from 'orbitcode';
+import './Newsletter.css'
+import { useVar } from 'orbitcode'
 
 interface NewsletterProps {
-  title?: string;
-  subtitle?: string;
+  title?: string
+  subtitle?: string
 }
 
 function Newsletter({
   title = 'Stay in the Loop',
-  subtitle = 'Subscribe to get special offers, free giveaways, and exclusive deals.'
+  subtitle = 'Subscribe to get special offers, free giveaways, and exclusive deals.',
 }: NewsletterProps) {
-  const [email, setEmail] = useVar<string>('newsletterEmail', '');
-  const [subscribed, setSubscribed] = useVar<boolean>('newsletterSubscribed', false);
+  const [email, setEmail] = useVar<string>('newsletterEmail', '')
+  const [subscribed, setSubscribed] = useVar<boolean>('newsletterSubscribed', false)
 
   const handleSubmit = (e: Event) => {
-    e.preventDefault();
+    e.preventDefault()
     if (email) {
-      setSubscribed(true);
+      setSubscribed(true)
     }
-  };
+  }
 
   return (
     <section className="newsletter-section">
@@ -38,7 +38,7 @@ function Newsletter({
                 type="email"
                 placeholder="Enter your email"
                 value={email}
-                onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
+                onChange={e => setEmail((e.target as HTMLInputElement).value)}
                 required
               />
               <button type="submit">Subscribe</button>
@@ -51,12 +51,12 @@ function Newsletter({
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 // Default export renders component in isolation for preview
 export default function NewsletterPreview() {
-  return <Newsletter />;
+  return <Newsletter />
 }
 
-export { Newsletter };
+export { Newsletter }

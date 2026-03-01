@@ -1,13 +1,13 @@
-import './Hero.css';
+import './Hero.css'
 
 interface HeroProps {
-  title?: string;
-  subtitle?: string;
+  title?: string
+  subtitle?: string
 }
 
 function Hero({
   title = 'New Season Collection',
-  subtitle = 'Discover our latest arrivals with up to 40% off'
+  subtitle = 'Discover our latest arrivals with up to 40% off',
 }: HeroProps) {
   return (
     <section className="catalog-hero">
@@ -25,12 +25,12 @@ function Hero({
         <div className="hero-shape secondary"></div>
       </div>
     </section>
-  );
+  )
 }
 
 // Default export renders component in isolation for preview
 export default function HeroPreview() {
-  return <Hero />;
+  return <Hero />
 }
 
-export { Hero };
+export { Hero }

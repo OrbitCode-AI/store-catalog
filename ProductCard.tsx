@@ -1,22 +1,22 @@
-import './ProductCard.css';
+import './ProductCard.css'
 
 interface Product {
-  id: string;
-  name: string;
-  category: string;
-  price: number;
-  originalPrice?: number;
-  image: string;
-  rating: number;
-  reviews: number;
-  badge?: 'sale' | 'new';
+  id: string
+  name: string
+  category: string
+  price: number
+  originalPrice?: number
+  image: string
+  rating: number
+  reviews: number
+  badge?: 'sale' | 'new'
 }
 
 interface ProductCardProps {
-  product: Product;
-  isWishlisted: boolean;
-  onAddToCart: () => void;
-  onToggleWishlist: () => void;
+  product: Product
+  isWishlisted: boolean
+  onAddToCart: () => void
+  onToggleWishlist: () => void
 }
 
 function ProductCard({ product, isWishlisted, onAddToCart, onToggleWishlist }: ProductCardProps) {
@@ -31,8 +31,7 @@ function ProductCard({ product, isWishlisted, onAddToCart, onToggleWishlist }: P
         )}
         <button
           className={`product-wishlist ${isWishlisted ? 'active' : ''}`}
-          onClick={onToggleWishlist}
-        >
+          onClick={onToggleWishlist}>
           {isWishlisted ? '❤️' : '🤍'}
         </button>
       </div>
@@ -46,9 +45,7 @@ function ProductCard({ product, isWishlisted, onAddToCart, onToggleWishlist }: P
         <div className="product-footer">
           <span className="product-price">
             ${product.price}
-            {product.originalPrice && (
-              <span className="original">${product.originalPrice}</span>
-            )}
+            {product.originalPrice && <span className="original">${product.originalPrice}</span>}
           </span>
           <button className="product-add" onClick={onAddToCart}>
             Add
@@ -56,7 +53,7 @@ function ProductCard({ product, isWishlisted, onAddToCart, onToggleWishlist }: P
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 const sampleProducts: Product[] = [
@@ -81,13 +78,13 @@ const sampleProducts: Product[] = [
     reviews: 89,
     badge: 'new',
   },
-];
+]
 
 // Default export renders component in isolation for preview
 export default function ProductCardPreview() {
   return (
     <div className="preview-cards">
-      {sampleProducts.map((product) => (
+      {sampleProducts.map(product => (
         <ProductCard
           key={product.id}
           product={product}
@@ -97,8 +94,8 @@ export default function ProductCardPreview() {
         />
       ))}
     </div>
-  );
+  )
 }
 
-export { ProductCard };
-export type { Product };
+export { ProductCard }
+export type { Product }

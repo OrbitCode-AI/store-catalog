@@ -1,10 +1,10 @@
-import './App.css';
-import Header from './Header';
-import Hero from './Hero';
-import Categories from './Categories';
-import ProductGrid from './ProductGrid';
-import Newsletter from './Newsletter';
-import Footer from './Footer';
+import './App.css'
+import Header from './Header'
+import Hero from './Hero'
+import Categories from './Categories'
+import ProductGrid from './ProductGrid'
+import Newsletter from './Newsletter'
+import Footer from './Footer'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       </main>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

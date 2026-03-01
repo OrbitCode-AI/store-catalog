@@ -1,19 +1,19 @@
-import './Sidebar.css';
+import './Sidebar.css'
 
 interface Category {
-  id: string;
-  name: string;
-  icon: string;
-  count: number;
+  id: string
+  name: string
+  icon: string
+  count: number
 }
 
 interface SidebarProps {
-  categories: Category[];
-  selectedCategory: string;
-  minPrice: number;
-  maxPrice: number;
-  onCategoryChange: (id: string) => void;
-  onPriceChange: (min: number, max: number) => void;
+  categories: Category[]
+  selectedCategory: string
+  minPrice: number
+  maxPrice: number
+  onCategoryChange: (id: string) => void
+  onPriceChange: (min: number, max: number) => void
 }
 
 function Sidebar({
@@ -31,18 +31,18 @@ function Sidebar({
         <div className="category-list">
           <button
             className={`category-item ${selectedCategory === 'all' ? 'active' : ''}`}
-            onClick={() => onCategoryChange('all')}
-          >
+            onClick={() => onCategoryChange('all')}>
             <span className="category-icon">📦</span>
             All Products
-            <span className="category-count">{categories.reduce((sum, c) => sum + c.count, 0)}</span>
+            <span className="category-count">
+              {categories.reduce((sum, c) => sum + c.count, 0)}
+            </span>
           </button>
-          {categories.map((cat) => (
+          {categories.map(cat => (
             <button
               key={cat.id}
               className={`category-item ${selectedCategory === cat.id ? 'active' : ''}`}
-              onClick={() => onCategoryChange(cat.id)}
-            >
+              onClick={() => onCategoryChange(cat.id)}>
               <span className="category-icon">{cat.icon}</span>
               {cat.name}
               <span className="category-count">{cat.count}</span>
@@ -60,7 +60,9 @@ function Sidebar({
               <input
                 type="number"
                 value={minPrice}
-                onChange={(e) => onPriceChange(Number((e.target as HTMLInputElement).value), maxPrice)}
+                onChange={e =>
+                  onPriceChange(Number((e.target as HTMLInputElement).value), maxPrice)
+                }
               />
             </div>
             <div className="price-input">
@@ -68,14 +70,16 @@ function Sidebar({
               <input
                 type="number"
                 value={maxPrice}
-                onChange={(e) => onPriceChange(minPrice, Number((e.target as HTMLInputElement).value))}
+                onChange={e =>
+                  onPriceChange(minPrice, Number((e.target as HTMLInputElement).value))
+                }
               />
             </div>
           </div>
         </div>
       </div>
     </aside>
-  );
+  )
 }
 
 const sampleCategories: Category[] = [
@@ -83,7 +87,7 @@ const sampleCategories: Category[] = [
   { id: 'clothing', name: 'Clothing', icon: '👕', count: 18 },
   { id: 'home', name: 'Home & Garden', icon: '🏠', count: 12 },
   { id: 'sports', name: 'Sports', icon: '⚽', count: 9 },
-];
+]
 
 // Default export renders component in isolation for preview
 export default function SidebarPreview() {
@@ -94,12 +98,12 @@ export default function SidebarPreview() {
         selectedCategory="all"
         minPrice={0}
         maxPrice={500}
-        onCategoryChange={(id) => console.log('Category:', id)}
+        onCategoryChange={id => console.log('Category:', id)}
         onPriceChange={(min, max) => console.log('Price:', min, max)}
       />
     </div>
-  );
+  )
 }
 
-export { Sidebar };
-export type { Category };
+export { Sidebar }
+export type { Category }

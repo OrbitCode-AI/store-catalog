@@ -1,16 +1,16 @@
-import './Categories.css';
-import { useVar } from 'orbitcode';
+import './Categories.css'
+import { useVar } from 'orbitcode'
 
 interface Category {
-  id: string;
-  name: string;
-  icon: string;
-  count: number;
-  color: string;
+  id: string
+  name: string
+  icon: string
+  count: number
+  color: string
 }
 
 interface CategoriesProps {
-  categories?: Category[];
+  categories?: Category[]
 }
 
 const defaultCategories: Category[] = [
@@ -19,11 +19,11 @@ const defaultCategories: Category[] = [
   { id: 'home', name: 'Home & Garden', icon: '🏠', count: 189, color: '#55efc4' },
   { id: 'sports', name: 'Sports', icon: '⚽', count: 312, color: '#ffeaa7' },
   { id: 'books', name: 'Books', icon: '📚', count: 445, color: '#fab1a0' },
-  { id: 'beauty', name: 'Beauty', icon: '💄', count: 278, color: '#fd79a8' }
-];
+  { id: 'beauty', name: 'Beauty', icon: '💄', count: 278, color: '#fd79a8' },
+]
 
 function Categories({ categories = defaultCategories }: CategoriesProps) {
-  const [, setSelectedCategory] = useVar<string | null>('selectedCategory', null);
+  const [, setSelectedCategory] = useVar<string | null>('selectedCategory', null)
 
   return (
     <section id="categories" className="categories-section">
@@ -31,13 +31,12 @@ function Categories({ categories = defaultCategories }: CategoriesProps) {
         <h2>Shop by Category</h2>
 
         <div className="categories-grid">
-          {categories.map((category) => (
+          {categories.map(category => (
             <button
               key={category.id}
               className="category-card"
               onClick={() => setSelectedCategory(category.id)}
-              style={{ '--accent-color': category.color } as React.CSSProperties}
-            >
+              style={{ '--accent-color': category.color } as React.CSSProperties}>
               <div className="category-icon">{category.icon}</div>
               <h3>{category.name}</h3>
               <span className="category-count">{category.count} items</span>
@@ -46,12 +45,12 @@ function Categories({ categories = defaultCategories }: CategoriesProps) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 // Default export renders component in isolation for preview
 export default function CategoriesPreview() {
-  return <Categories />;
+  return <Categories />
 }
 
-export { Categories };
+export { Categories }
